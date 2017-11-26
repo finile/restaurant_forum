@@ -59,3 +59,4 @@ gem 'carrierwave'
 
 gem 'ffaker'
 
+gem 'kaminari'
