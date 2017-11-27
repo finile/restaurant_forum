@@ -8,25 +8,40 @@
   </ul>
 <% end %>
 
-<%= form_for  [:admin, @restaurant] do |f| %>
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %>
-  
-  <%= f.label :tel, "Tel" %>
-  <%= f.text_field :tel %>
-  
-  <%= f.label :address, "Address" %>
-  <%= f.text_field :address %>
 
-  <%= f.label :opening_hours, "Opening Hours" %>
-  <%= f.text_field :opening_hours %>
+<div class = "form container">
+  <%= form_for  [:admin, @restaurant] do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
 
-  <%= f.label :description, "Description" %>
-  <%= f.text_area :description %>
+    <div class="form-group">
+      <%= f.label :tel, "Tel" %>
+      <%= f.text_field :tel, class: "form-control" %>
+    </div>
 
-  <%= f.label :image, "Photo" %>
-  <%= image_tag @restaurant.image, width: '600px' if @restaurant.image? %>
-  <%= f.file_field :image %>
+    <div class="form-group">
+      <%= f.label :address, "Address" %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
 
-  <%= f.submit %>
-<% end %>
+    <div class="form-group">
+      <%= f.label :opening_hours, "Opening Hours" %>
+      <%= f.text_field :opening_hours, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :image, "Photo" %>
+      <%= image_tag @restaurant.image, width: '600px' if @restaurant.image? %>
+      <%= f.file_field :image %>
+    </div>
+
+    <%= f.submit %>
+  <% end %>
+</div>
