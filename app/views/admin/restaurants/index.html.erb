@@ -34,6 +34,9 @@
               <h4 class="card-title">
                 <a href="#"><%= restaurant.name %></a>
               </h4>
+              <h4 class="card-title">
+                <a href="#"><%= restaurant.category.name %></a>
+              </h4>
               <p class="card-text"><%= simple_format(restaurant.description) %></p>
               <h4 class="card-title">
                 <a href="#"><%= link_to 'Show', admin_restaurant_path(restaurant) %></a>
