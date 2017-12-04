@@ -1,11 +1,12 @@
 class Admin::CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_admin
+  before_action :set_category, only: [:updae, :destroy]
 
   def index
     @categories = Category.all
       if params[:id]
-        @category = Category.find(params[:id])
+        set_category
       else
       @category = Category.new
     end
@@ -24,7 +25,6 @@ class Admin::CategoriesController < ApplicationController
 
 
   def update
-    @category = Category.find(params[:id])
     if @category.update(category_params)
       redirect_to admin_categories_path
       flash[:notice] = "Category was successfully updated"
@@ -35,18 +35,19 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     flash[:alert] = "Category was successfully deleted"
     redirect_to admin_categories_path
   end
 
 private
-  
+
   def category_params
     params.require(:category).permit(:name)
   end
 
-
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
 end
