@@ -1,7 +1,6 @@
-class Admin::CategoriesController < ApplicationController
-  before_action :authenticate_admin
+class Admin::CategoriesController < Admin::BaseController
   before_action :set_category, only: [:update, :destroy]
-  before_action :set_category, only: [:updae, :destroy]
+  before_action :set_category, only: [:update, :destroy]
 
 
   def index
