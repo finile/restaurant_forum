@@ -21,18 +21,31 @@
         <div class="clearfix"></div>
       </div>
       <br>
-      
+
       <div>
-        <div>
-          <% @commented_restaurants.each do |restaurant| %>
-          <!-- <%= image_tag restaurant.image, size:"350x350", class: "img-thumbnail" %> -->
-          <img src="http://via.placeholder.com/350x350" class="img-responsive img-rounded">
-          <%= link_to restaurant.name, restaurant_path(restaurant) %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong><%= @commented_restaurants.count%></strong></strong> 評論過餐廳 </h3>
+          </div>
+
+          <div class="panel-body">
+            <% @commented_restaurants.each do |restaurant| %>
+            <%= link_to restaurant_path(restaurant) do %>
+             <div class= "my-restaurant">
+                <div>
+                  <!-- <%= image_tag restaurant.image, size:"350x350", class: "img-thumbnail" %> -->
+                  <img src="http://via.placeholder.com/350x350" class="img-responsive img-rounded">
+                </div>    
+              <h5><%= restaurant.name %></h5>
+            </div>        
           <% end %>
-        </div>
+          <% end %>
+          </div>
+        </div> 
       </div>
   
     </div>
   </div>
 </div>
+
 
