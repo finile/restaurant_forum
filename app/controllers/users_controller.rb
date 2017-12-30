@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
 
   def show
-    @commented_restaurants = @user.restaurants.uniq
+    @commented_restaurants = @user.restaurants.reorder("name").uniq
   end
 
   def edit
@@ -29,3 +29,6 @@ private
   end
 
 end
+
+
+@recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
